@@ -1,0 +1,22 @@
+name: Release
+
+on:
+  workflow_run:
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: action-zip
+        uses: montudor/action-zip@v1.0.0
+        with:
+          args: zip -r release.zip . -x ".github/*"
+
+      - name: Upload artifact to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release.zip
