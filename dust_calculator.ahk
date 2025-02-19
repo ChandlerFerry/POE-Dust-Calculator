@@ -81,6 +81,7 @@ CalculateDustValue() {
     itemData := RegExReplace(itemData, "\R+\(.*\)\R+", "") ; Remove explanations e.g. `(Only Abyss Jewels can be Socketed in Abyssal Sockets)`
     itemData := RegExReplace(itemData, "\R+", "") ; Flatten for Regex
     itemData := RegExReplace(itemData, " \(crafted\)", "") ; Remove crafted explainer
+    itemData := RegExReplace(itemData, " \(fractured\)", "") ; Remove crafted explainer
     itemData := RegExReplace(itemData, "\d+\.\d+\(", "(") ; Remove mod values with Decimals
     itemData := RegExReplace(itemData, "\d+\(", "(") ; Remove mod values
     itemData := itemData " {" ; Add a `{` for regex hilarity
