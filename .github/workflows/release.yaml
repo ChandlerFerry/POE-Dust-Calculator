@@ -19,7 +19,7 @@ jobs:
       - name: action-zip
         uses: montudor/action-zip@v1.0.0
         with:
-          args: zip -r release.zip . -x ".github/*"
+          args: zip -r dust_calculator.zip . -x ".github/*"
 
       - name: Upload artifact to release
         uses: softprops/action-gh-release@v2
