@@ -1,5 +1,18 @@
 #SingleInstance Force
+SetKeyDelay, 0, 0
 
+; Hotkeys
+checkDustHotkey := "Insert"
+reloadHotkey := "NumpadMult"
+
+; Ingame Settings
+compareItemDescriptions := "Ctrl"
+showAdvancedItemDescriptions := "Alt"
+
+; Configs
+findMissingMods := false
+
+; Mod Dicts
 amuletsModDict := LoadModDictionary("./mods/parsed_Amulets.json")
 beltsModDict := LoadModDictionary("./mods/parsed_Belts.json")
 bodyArmoursModDict := LoadModDictionary("./mods/parsed_Body_Armours.json")
@@ -25,14 +38,10 @@ twoHandSwordsModDict := LoadModDictionary("./mods/parsed_Two_Hand_Swords.json")
 wandsModDict := LoadModDictionary("./mods/parsed_Wands.json")
 warstavesModDict := LoadModDictionary("./mods/parsed_Warstaves.json")
 
-findMissingMods := false
-
-NumpadMult::Reload
-#IfWinActive ahk_exe PathOfExile.exe
-    Insert::
-        CalculateDustValue() ; FIXME: Magic items say zero dust value
-#IfWinActive
-Return
+; #IfWinActive ahk_exe PathOfExile.exe
+Hotkey, %checkDustHotkey%, CalculateDustValue
+Hotkey, %reloadHotkey%, ReloadScript
+; #IfWinActive
 
 CalculateDustValue() {
     global
@@ -40,8 +49,11 @@ CalculateDustValue() {
     Clipboard := ""
     totalValue := 0
 
-    Send, ^!c
-
+    SendInput, {Blind}{%compareItemDescriptions% Down}{%showAdvancedItemDescriptions% Down}
+    Sleep, 10
+    Send, c
+    SendInput, {Blind}{%compareItemDescriptions% Up}{%showAdvancedItemDescriptions% Up}
+    
     ClipWait, 1
 
     itemData := Clipboard 
@@ -199,4 +211,8 @@ LoadModDictionary(filePath) {
     }
 
     return modDict
+}
+
+ReloadScript() {
+    Reload
 }
