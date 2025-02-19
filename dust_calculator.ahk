@@ -79,11 +79,12 @@ CalculateDustValue() {
     pattern := "\{ .*? Modifier ""([^""]+)"".*?\}(.*?)(?:\{|-----)"
     pos := 2 ; jank fix for `{` at end of regex
     While (pos := RegExMatch(itemData, pattern, match, pos-1)) {
-        ; modName := match1
+        modName := match1
         modDetails := RTrim(match2, " ")
+        modCombined := modName . " " . modDetails
 
         ; MsgBox,,, %modDetails%
-        modLvl := modDictionary[modDetails]
+        modLvl := modDictionary[modCombined]
 
         ; Debugging
         ; If modLvl is not found, MsgBox the modDetails
