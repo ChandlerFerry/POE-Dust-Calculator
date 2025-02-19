@@ -1,3 +1,4 @@
+[![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
 # POE-Dust-Calculator
 AHK Dust Calculator for Path of Exile Settlers
 
@@ -12,8 +13,6 @@ AHK Dust Calculator for Path of Exile Settlers
 ![image](https://github.com/user-attachments/assets/ec9e1ee7-02b8-4a9f-b389-048feeb1c2a0)
 
 ## License
-Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
-
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
 
