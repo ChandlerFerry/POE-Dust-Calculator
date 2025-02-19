@@ -7,3 +7,4 @@ AHK Dust Calculator for Path of Exile Settlers
 - No Essence Mods
 - No Influence Mods
 - No Krangled Mods
+- Quality %
