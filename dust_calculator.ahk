@@ -127,7 +127,6 @@ CalculateDustValue() {
 
     Clipboard := OldClipboard
     Return
-
 }
 
 CalcValueMultiplier(baseItemLevel) {
