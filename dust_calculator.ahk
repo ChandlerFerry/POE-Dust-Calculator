@@ -25,7 +25,7 @@ twoHandSwordsModDict := LoadModDictionary("./mods/parsed_Two_Hand_Swords.json")
 wandsModDict := LoadModDictionary("./mods/parsed_Wands.json")
 warstavesModDict := LoadModDictionary("./mods/parsed_Warstaves.json")
 
-findMissingMods := true
+findMissingMods := false
 
 NumpadMult::Reload
 #IfWinActive ahk_exe PathOfExile.exe
