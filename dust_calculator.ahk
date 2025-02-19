@@ -29,35 +29,10 @@ findMissingMods := false
 
 NumpadMult::Reload
 #IfWinActive ahk_exe PathOfExile.exe
-    *\::
-        SendToChat("/hideout")
-    Return
-
-    *F4::
-        SendToChat("/exit")
-
     Insert::
         CalculateDustValue() ; FIXME: Magic items say zero dust value
 #IfWinActive
 Return
-
-SendToChat(text) {
-    Send, {Enter}
-    Send, ^a
-    placeholder := Clipboard
-    Clipboard := text
-    Send, ^v
-    Send, {Enter}
-    Clipboard := placeholder
-    Return
-}
-
-RandSleep(x, y) {
-    global
-    Random, rand, %x%, %y%
-    Sleep, rand + extraDelay
-    Return
-}
 
 CalculateDustValue() {
     global
